@@ -1,0 +1,34 @@
+
+toplam_doldurulan_alan = 0 # bu değer 3 e 3 lük matriste kaç yeri doğru şekilde doldurduğumuzu gösterecek
+toplam_doldurulacak_alan=9
+asal_mi = 0
+kaclik_matrix=3
+matrix=[[],[],[]] # 3 satirlik matrix
+while toplam_doldurulan_alan<toplam_doldurulacak_alan:
+    asal_mi=0 # fonksiyon kullanmak yasak olduğu için böyle bir değişkene ihtiyaç duyduk
+    while asal_mi!=1: #asal sayı  girilmediği sürece tekrar input ister
+        print("Bir sayi giriniz")
+        girilen_sayi=int(input()) #sayi alip inte çevirdik
+        bolundumu=False # 2 den n e kadar sayıyı böleceğiz eğer bölünen var ise bunu true yapacağız böylelikle asal olmadığını anlayacağız.
+        if girilen_sayi==2: #iki istisnai bir sayı olduğu için özellikle yazdım belk gerek bile olmayabilirdi direk 2 geldiyse döngüden çık ve 27.inci satıra devam etmesini söylemiş oldum bi nevi
+            asal_mi=True
+        elif girilen_sayi > 1: # bunun altıdnaki kısımlar girilen o anki sayının asalmı değilmi olmadığını anlamak için yazıldı
+
+            for i in range(2, girilen_sayi):  # 2 den o sayıya kadar sırayla böldüm ve eğer bölündüyse asal olmamış oldu
+                if (girilen_sayi % i) == 0:
+                    bolundumu=True   #eğer bölündüyse demekki bu  girilen sayının böleni var ve asal
+                    break   #bos yere daha fazla dönme demek için break koyduk
+            if bolundumu==False:  # eğer bunun içine girerse 2 den o sayıya kadar demekki bölen yokmuş ve sayımız asalmış artık input alma aşamasını geçebiliriz 27.satıra geçtik
+                asal_mi=1
+            else:
+                print("Asal sayi değil tekrar giriniz")
+
+
+    kacinci_satirdayim=toplam_doldurulan_alan//3   # suan kaçıncı satırı dolduruyorum onu hesaplmak için o anki girilen değeri tam sayı bölmesi yapıyorum örnek baştakyen 0/3 = 0
+    matrix[kacinci_satirdayim].append(girilen_sayi)   # o sayıyı bu satıra attım
+    toplam_doldurulan_alan=toplam_doldurulan_alan+1  # basarılı olarak ekleme yapabildiğim için bir arttırdım
+
+
+
+for deger in matrix:
+    print(deger)
