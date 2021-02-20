@@ -1,0 +1,24 @@
+import random
+words =["python","programming","machine","learning"]
+letters = []
+word = words[random.randrange(len(words))]
+print("welcome to Hangman")
+life = 5
+while life < 30:
+    guess = input("Enter your guess :")
+    if word.__contains__(guess):
+        print("your guessed this right")
+        letters.append(guess)
+        if letters.__len__() == word.__len__():
+            print("Congratulations!!")
+            break
+        else:
+            lettersLeft = word.__len__() - letters.__len__()
+            print("you have",lettersLeft,"letters left")
+    else:
+        life -= 1
+        if life == 0:
+            print("game over!! the word was :",word)
+            break
+        else:
+            print("ooopss , you have",life,"lives left, try again !")
