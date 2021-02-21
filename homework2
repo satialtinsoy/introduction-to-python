@@ -1,0 +1,33 @@
+notlar_listesi = []
+isim_soyisim = []
+
+for x in range (5):
+    list1 = []
+    list2 = []
+    isim = input("Lütfen adınızı giriniz :")
+    soyisim = input("Lütfen soyisminizi giriniz:")
+    midterm = int(input("Lütfen vize notunuzu giriniz:"))
+    final = int(input("Lütfen final notunuzu giriniz:"))
+    homework = int(input("Lütfen ödev notunuzu giriniz:"))
+    ortalama = (midterm + final + homework) / 3
+
+    list1.append(isim)
+    list1.append(soyisim)
+    list2.append(midterm)
+    list2.append(final)
+    list2.append(homework)
+    list2.append(ortalama)
+
+    isim_soyisim.append(list1)
+    notlar_listesi.append(list2)
+
+print(isim_soyisim)
+print(notlar_listesi)
+
+info = {}
+for i in range(len(isim_soyisim)):
+    info[isim_soyisim[i][0]+ " "+ isim_soyisim[i][1]] = notlar_listesi[i][-1]
+
+for i in info :
+
+    print(i + " " + str(info[i]))
